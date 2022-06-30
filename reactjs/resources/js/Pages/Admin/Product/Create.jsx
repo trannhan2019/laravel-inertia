@@ -32,12 +32,10 @@ export default function Create() {
 
     return (
         <AdminLayout>
-            {errors.ten}
-            <div className="w-screen h-screen bg-purple-700 flex justify-center items-center">
+            <div className="w-max">
                 <form
                     onSubmit={formik.handleSubmit}
                     className="p-10 bg-white rounded-lg drop-shadow-lg space-y-4"
-                    action=""
                 >
                     <h1 className="text-xl font-light">Create new product</h1>
 

@@ -3,6 +3,19 @@ import { Link } from "@inertiajs/inertia-react";
 import AdminLayout from "@/Layouts/AdminLayout";
 
 export default function Index() {
+    const pt = React.useRef(null);
+    const ptt = document.getElementById("ptt");
+    const [ps, setPs] = React.useState("");
+    const handleClick = () => {
+        //setPs(pt.current.value);
+        //alert(pt.current);
+        console.log(pt.current);
+        console.log(ptt);
+        pt.current.innerHTML = "11111111111111";
+        pt.current.style.color = "blue";
+        ptt.innerHTML = "22222222222";
+        ptt.style.color = "red";
+    };
     return (
         <AdminLayout>
             <h3>Product List</h3>
@@ -13,6 +26,12 @@ export default function Index() {
                 >
                     Create Product
                 </Link>
+            </div>
+            <div>
+                <p ref={pt}>Day la the p 1</p>
+                <p id="ptt">Day la the p 2</p>
+                <button onClick={handleClick}>click</button>
+                <p>{ps}</p>
             </div>
         </AdminLayout>
     );

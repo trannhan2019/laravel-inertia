@@ -17,9 +17,9 @@ use Inertia\Inertia;
 |
 */
 
-Route::prefix('quan-tri')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::prefix('posts')->group(function () {
+    Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('admin.product.index');
         Route::get('/create', [ProductController::class, 'create'])->name('admin.product.create');
         Route::post('/store', [ProductController::class, 'store'])->name('admin.product.store');
