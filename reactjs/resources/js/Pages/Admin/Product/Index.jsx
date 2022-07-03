@@ -1,23 +1,15 @@
 import React from "react";
+import { usePage } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import AdminLayout from "@/Layouts/AdminLayout";
+import HoverTable from "@/Components/Admin/Product/HoverTable";
+import Alert from "@/Components/Admin/Alert";
 
-export default function Index() {
-    const pt = React.useRef(null);
-    const ptt = document.getElementById("ptt");
-    const [ps, setPs] = React.useState("");
-    const handleClick = () => {
-        //setPs(pt.current.value);
-        //alert(pt.current);
-        console.log(pt.current);
-        console.log(ptt);
-        pt.current.innerHTML = "11111111111111";
-        pt.current.style.color = "blue";
-        ptt.innerHTML = "22222222222";
-        ptt.style.color = "red";
-    };
+export default function Index({ products }) {
+    const { flash } = usePage().props;
     return (
         <AdminLayout>
+            {flash.success && <div className="alert">{flash.success}</div>}
             <h3>Product List</h3>
             <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <Link
@@ -27,12 +19,7 @@ export default function Index() {
                     Create Product
                 </Link>
             </div>
-            <div>
-                <p ref={pt}>Day la the p 1</p>
-                <p id="ptt">Day la the p 2</p>
-                <button onClick={handleClick}>click</button>
-                <p>{ps}</p>
-            </div>
+            <HoverTable products={products} />
         </AdminLayout>
     );
 }

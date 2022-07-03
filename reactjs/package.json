@@ -22,9 +22,17 @@
         "vite": "^2.9.11"
     },
     "dependencies": {
+        "@emotion/react": "^11.9.3",
+        "@emotion/styled": "^11.9.3",
         "@heroicons/react": "^1.0.6",
+        "@hookform/resolvers": "^2.9.3",
+        "@mui/icons-material": "^5.8.4",
+        "@mui/material": "^5.8.6",
         "@tinymce/tinymce-react": "^4.1.0",
+        "antd": "^4.21.4",
         "formik": "^2.2.9",
+        "react-hook-form": "^7.33.1",
+        "sweetalert2": "^11.4.19",
         "yup": "^0.32.11"
     }
 }

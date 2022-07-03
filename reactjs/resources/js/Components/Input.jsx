@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 export default function Input({
-    type = 'text',
+    type = "text",
     name,
     value,
     className,
@@ -15,6 +15,7 @@ export default function Input({
     useEffect(() => {
         if (isFocused) {
             input.current.focus();
+            // console.log(input.current.focus());
         }
     }, []);
 
@@ -31,7 +32,8 @@ export default function Input({
                 ref={input}
                 autoComplete={autoComplete}
                 required={required}
-                onChange={(e) => handleChange(e)}
+                // onChange={(e) => handleChange(e)}
+                onChange={handleChange}
             />
         </div>
     );

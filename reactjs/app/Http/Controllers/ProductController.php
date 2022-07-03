@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Http\Resources\ProductResource;
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -16,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Product/Index');
+        $products = ProductResource::collection(Product::all());
+        return Inertia::render('Admin/Product/Index', compact('products'));
     }
 
     /**
@@ -26,6 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         return Inertia::render('Admin/Product/Create');
     }
 
@@ -41,7 +44,7 @@ class ProductController extends Controller
             'ten' => $request->ten,
             'mo_ta' => $request->mo_ta,
         ]);
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index')->with('success', 'Create new product success !!!');
     }
 
     /**
