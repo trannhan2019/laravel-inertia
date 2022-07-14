@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,6 +24,15 @@ Route::get('/', function () {
     //     'laravelVersion' => Application::VERSION,
     //     'phpVersion' => PHP_VERSION,
     // ]);
+});
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::prefix('posts')->group(function () {
+            Route::get('/', [PostController::class, 'index'])->name('admin.post.index');
+            Route::get('/create', [PostController::class, 'create'])->name('admin.post.create');
+            Route::post('/store', [PostController::class, 'store'])->name('admin.post.store');
+        });
+    });
 });
 
 Route::get('/dashboard', function () {
